@@ -1,0 +1,65 @@
+Trilha instalação criação Pipeline Jenkins Linux:
+
+1 - Apt get update
+2 - apt upgrade
+3 - apt install openjdk-11-jdk(instalação do Java - Base do Jenkins) 
+4 - Buscar os comandos para instalação do Jenkins no endereço: https://www.jenkins.io/doc/book/installing/linux/
+5 - Executar a instalação
+6 - verificar o status: systemctl status jenkins
+7 - instalar o Docker
+8 - curl -fsSL https://get.docker.com | bash
+9 - testar digitando o comando docker
+10 - adicionar o usuário do jenkins ao grupo que pode executar o docker
+11 - usermod -aG docker jenkins
+12 - systemctl restart jenkins (restart jenkins)
+13 - systemctl status jenkins (testando status)
+14 - instalar o kubectl 
+15 - Buscar comandos em https://kubernetes.io/pt-br/docs/tasks/tools/install-kubectl-linux/
+	
+	Atualize o índice do apt e instale os pacotes necessários para utilizar o repositório apt do Kubernetes:
+
+		sudo apt-get update
+		sudo apt-get install -y ca-certificates curl
+
+	Se você usa o Debian 9 (stretch) ou anterior, também precisará instalar o apt-transport-https:
+
+		sudo apt-get install -y apt-transport-https
+
+	Faça download da chave de assinatura pública do Google Cloud:
+
+		curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
+
+
+	Adicione o repositório apt do Kubernetes:
+
+		echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+
+	Atualize o índice do apt com o novo repositório e instale o kubectl:
+	
+
+		sudo apt-get update
+		sudo apt-get install -y kubectl
+
+16 - Acessar os servidor jenkins: localhost:8080
+17 - pegar a senha no servidor
+	cat /var/lib/jenkins/secrets/initialAdminPassword
+
+18 - Copiar e colar a senha na página da aplicação
+19 - Instalar plugins sugeridos
+20 - cadastrar primeiro usuário
+	jenadmin	
+	467413	
+21 - Save and continue
+22 - confirmar local do servidor
+23 - Start using Jenkins
+24 - Instalar os plugins que utilizaremos	
+	Clicar à esquerda em "Manage Jenkins"
+	Plugins
+	Available Plugins	
+		docker
+		docker pipeline
+		kubernetes CLI
+	clicar em install after restart
+	aguardar termino do download
+	clicar em "restart jenkins when..."

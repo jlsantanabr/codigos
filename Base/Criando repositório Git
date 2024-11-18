@@ -1,0 +1,28 @@
+echo "# codigos" >> README.md
+git init
+git add README.md
+git config --global user.name "Jorge Santana"
+git config --global user.email blackjack.smart@gmail.com
+git config --global color.ui true
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/jlsantanabr/codigos.git
+git push -u origin main
+
+para fazer o push é necessário criar um token privado. 
+Ao clicar na foto do perfil no Github,
+clicar em "settings"
+à Esquerda clicar em Developer Settings
+Personal access Tokens
+Tokens (classic)
+Generate new token
+	nome
+	descrição
+	atuações
+Gerar e copiar a nova chave.
+
+
+
+Token de autenticação do Github: 
+jlsantanabr
+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
